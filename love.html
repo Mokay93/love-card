@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Любовная открытка</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>Для тебя, моя любовь ❤️</h1>
+
+  <div class="heart-container">
+    <svg viewBox="0 0 200 200">
+      <path d="M100 180 C20 100, 20 30, 100 80 C180 30, 180 100, 100 180"
+            fill="none" stroke="red" stroke-width="4"/>
+    </svg>
+  </div>
+
+  <img src="output.png" class="cat" id="cat" alt="Милый котёнок">
+
+  <div class="message" id="message">
+    Ты самая чудесная в мире! 💖<br>
+    Люблю тебя!
+  </div>
+
+  <div class="hearts" id="hearts"></div>
+
+  <audio id="bgMusic" autoplay loop>
+    <source src="music/show-me-love.mp3" type="audio/mpeg">
+    Ваш браузер не поддерживает аудио.
+  </audio>
+
+  <button id="playBtn">Включить музыку 🎵</button>
+
+  <script src="script.js"></script>
+
+</body>
+</html>

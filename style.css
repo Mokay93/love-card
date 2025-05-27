@@ -1,0 +1,209 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to top right, #ffe0e9, #fff0f5);
+    font-family: 'Segoe UI', sans-serif;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+h1 {
+    margin-top: 30px;
+    color: #d6336c;
+    font-size: 2.5em;
+}
+
+.heart-container {
+    margin-top: 50px;
+}
+
+svg {
+    width: 200px;
+    height: 200px;
+}
+
+path {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: draw 3s ease forwards;
+}
+
+@keyframes draw {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+.cat {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 2s ease, transform 2s ease;
+    margin-top: 30px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+}
+
+.cat.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.message {
+    opacity: 0;
+    margin-top: 30px;
+    font-size: 1.5em;
+    color: #b30059;
+    transition: opacity 2s ease;
+}
+
+.message.visible {
+    opacity: 1;
+}
+
+.hearts {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+.heart {
+    position: absolute;
+    color: #ff4d6d;
+    font-size: 24px;
+    animation: floatUp 5s linear infinite;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-300px) scale(1.5);
+        opacity: 0;
+    }
+}
+
+#playBtn {
+    display: none;
+    margin-top: 20px;
+    background: #ff6b9d;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+#playBtn:hover {
+    background: #e35d8f;
+}
+
+.heart-container svg {
+    width: 150px;
+    height: 135px;
+}
+
+#heartPath {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    fill: transparent;
+    animation: drawAndFill 3.5s ease forwards, pulse 1s ease 3.5s infinite;
+}
+
+@keyframes drawAndFill {
+    0% {
+        stroke-dashoffset: 1000;
+        fill: transparent;
+    }
+    85.7% {
+        stroke-dashoffset: 0;
+        fill: transparent;
+    }
+    100% {
+        stroke-dashoffset: 0;
+        fill: red;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.lover {
+    margin-top: 20px;
+    color: #b30059;
+    font-size: 1.5em;
+}
+
+.kittens-container {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.kitten-scatter {
+    width: 100px;
+    height: auto;
+    margin: 10px;
+    opacity: 0;
+    cursor: pointer;
+    transition: opacity 1s ease;
+    vertical-align: middle;
+}
+
+.kitten-scatter.visible {
+    opacity: 1;
+}
+
+.scatter-heart-svg {
+    position: absolute;
+    pointer-events: none;
+    opacity: 1;
+    animation: scatter 2s ease-out forwards;
+    transform-origin: center center;
+    transform: scale(1);
+}
+
+@keyframes scatter {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate(var(--scatter-x, 0), var(--scatter-y, 0)) scale(0);
+        opacity: 0;
+    }
+}
+
+.kitten {
+    position: absolute;
+    width: 80px;
+    height: auto;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 1s ease;
+    animation: moveKitten 10s linear forwards infinite alternate;
+}
+
+.kitten.visible {
+    opacity: 1;
+}
+
+@keyframes moveKitten {
+    0% {
+        transform: translateY(var(--move-y-start, 0));
+    }
+    100% {
+        transform: translateY(var(--move-y-end, 100px));
+    }
+}
+
